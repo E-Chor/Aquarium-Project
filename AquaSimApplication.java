@@ -26,19 +26,20 @@ public class AquaSimApplication
         System.out.println("Welcome to my aquarium");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-
+        Random generator =  new Random();
+        //int randNum = generator.nextInt(10);
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
         aqua = new Aquarium(600, 480); // ... object that has now been created
         
         // Construct fish and add them to the aquarium.
-        AquaFish first = new AquaFish(aqua);
+        AquaFish first = new AquaFish(aqua,Color.RED);
         aqua.add(first);
                 
-        AquaFish second = new AquaFish(aqua);
+        AquaFish second = new AquaFish(aqua,Color.BLUE);
         aqua.add(second);
         
-        AquaFish third = new AquaFish(aqua);
+        AquaFish third = new AquaFish(aqua,Color.BLUE);
         aqua.add(third);
         
         // Construct a graphical user interface (GUI) to display and control
