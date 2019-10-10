@@ -1,4 +1,4 @@
-import java.awt.Color;
+    import java.awt.Color;
 import java.util.Random;
 
 /** Aquarium Lab Series: <br>    
@@ -21,25 +21,27 @@ public class AquaSimApplication
      *  This is the main function.  It executes the program.
      *  @param    String args[] is never used
      **/
+    private static Random generator;
     public static void main(String args[])
     {
         System.out.println("Welcome to my aquarium");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-        Random generator =  new Random();
+        generator =  new Random();
+        int randNumber;
         //int randNum = generator.nextInt(10);
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
         aqua = new Aquarium(600, 480); // ... object that has now been created
-        
         // Construct fish and add them to the aquarium.
-        AquaFish first = new AquaFish(aqua,Color.RED);
+        AquaFish first =  new AquaFish(aqua,getColor());
         aqua.add(first);
-                
-        AquaFish second = new AquaFish(aqua,Color.BLUE);
+        
+        AquaFish second = new AquaFish(aqua,getColor());
         aqua.add(second);
         
-        AquaFish third = new AquaFish(aqua,Color.BLUE);
+
+        AquaFish third = new AquaFish(aqua,getColor());
         aqua.add(third);
         
         // Construct a graphical user interface (GUI) to display and control
@@ -98,5 +100,20 @@ public class AquaSimApplication
         userInterface.println ("Close GUI display window to quit.");
 
     }//end main
-
+    public static Color getColor()
+        {
+            int randNumber = generator.nextInt(6);
+            if (randNumber==0)
+            return Color.RED;
+            else if (randNumber==1)
+            return Color.BLUE;
+            else if (randNumber==2)
+            return Color.GREEN;
+            else if (randNumber==3)
+            return Color.ORANGE;
+            else if (randNumber==4)
+            return Color.YELLOW;
+            else
+            return Color.MAGENTA; 
+        }
 }//end class
